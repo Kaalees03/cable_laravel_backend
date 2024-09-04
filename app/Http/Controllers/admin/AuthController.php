@@ -51,7 +51,9 @@ class AuthController extends Controller
         {   
             $authenticatedUser = Auth::guard('admin_user')->user();           
             $admin_user_details['id']=$authenticatedUser->id;
-            $admin_user_details['unique_id']=$authenticatedUser->unique_id;           
+            $admin_user_details['name']=$authenticatedUser->name;           
+            $admin_user_details['email']=$authenticatedUser->email;         
+            $admin_user_details['unique_id']=$authenticatedUser->unique_id;       
             $token_key = $this->helperController->set_user_token($admin_user_details);
             return response()->json([
                  'status' => 201,   
